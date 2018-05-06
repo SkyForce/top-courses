@@ -1,31 +1,25 @@
 package com.jetbrains.internship.checkio;
 
-import okhttp3.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.List;
 
 public class Main {
     public static final String BASE_URL = "https://stepik.org";
     public static final int pageCount = 300;
 
     public static void main(String... args) throws IOException {
-        System.out.print("Enter N: ");
+        System.out.print("Enter number of top courses: ");
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         if (N < 1) {
-            throw new IOException("N must be positive");
+            throw new IOException("The number must be positive");
         }
 
         Retrofit retrofit = new Retrofit.Builder()
